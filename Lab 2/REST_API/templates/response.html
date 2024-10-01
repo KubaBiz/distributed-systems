@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wymiana walut</title>
+</head>
+<body>
+    <h2>Wymiana walut z FXRates</h2>
+    <h2>Strona wymienia wybraną wartość waluty na inną walutę</h2>
+
+    <h2>Kurs wymiany {{ currency_1 }} na {{ currency_2 }}: {{ data[1] }}</h2>
+
+    <h3>{{ amount }} {{ currency_1 }} >> {{ data[0] }} {{ currency_2 }}</h3>
+
+    <h3>{{ quote }}</h3>
+
+    <form action = "/currency/" method="get">
+        <input type="submit" value="Go back">
+    </form>
+</body>
+</html>

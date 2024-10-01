@@ -1,0 +1,4 @@
+in examples/example-reflection
+../gradlew installDist
+in examples/example-reflection/build/install/example-reflection/bin
+./reflection-server

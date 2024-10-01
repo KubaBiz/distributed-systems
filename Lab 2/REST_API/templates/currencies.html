@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wymiana walut</title>
+</head>
+<body>
+    <h2>Wymiana walut z FXRates</h2>
+    <h2>Strona wymienia wybraną wartość waluty na inną walutę</h2>
+
+    <form action = "/" method="get">
+        <input type="submit" value="Go back to the Root">
+    </form> <br></br>
+
+    <form action = "/exchange/" method="post">
+        Klucz API: <input type="text" name="key" size="50"><br><br>
+        Waluta 1: <select name="currency_1">
+            <option value="{{ currency_1_name | default('PLN') }}">{{ currency_1_name | default('PLN Polish Zloty') }}</option>
+            {% for item in currencies %}
+            <option value="{{ item[0] }}">{{ item[0] }} {{ item[1] }}</option>
+            {% endfor %}
+        </select><br><br>
+        Kwota: <input type="number" name="amount" placeholder="1" value="{{ amount | default('1.00') }}" min="0" step="0.01"><br><br>
+        Waluta 2: <select name="currency_2">
+            <option value="{{ currency_2_name | default('EUR') }}">{{ currency_2_name | default('EUR Euro') }}</option>
+            {% for item in currencies %}
+            <option value="{{ item[0] }}">{{ item[0] }} {{item[1]}}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="hidden" name="quote" value="0">
+        I am feeling ambitious: <input type="checkbox" name="quote" value="1" {% if quote %}checked{% endif %}><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
